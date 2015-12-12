@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8e3f896a-8f55-4af2-ab2c-825235ba5dbe">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Arial" fontSize="26" isBold="true" pdfFontName="Helvetica-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<parameter name="kelas" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     nilai.`nis` AS nilai_nis,
+     nilai.`nama` AS nilai_nama,
+     nilai.`pai` AS nilai_pai,
+     nilai.`pkn` AS nilai_pkn,
+     nilai.`bi` AS nilai_bi,
+     nilai.`mtk` AS nilai_mtk,
+     nilai.`ipa` AS nilai_ipa,
+     nilai.`ips` AS nilai_ips,
+     nilai.`skbl` AS nilai_skbl,
+     nilai.`pjok` AS nilai_pjok,
+     nilai.`jumlah` AS nilai_jumlah,
+     nilai.`kelas` AS nilai_kelas
+FROM
+     `nilai` nilai
+where kelas like '%$P!{kelas}%']]>
+	</queryString>
+	<field name="nilai_nis" class="java.lang.String"/>
+	<field name="nilai_nama" class="java.lang.String"/>
+	<field name="nilai_pai" class="java.lang.Integer"/>
+	<field name="nilai_pkn" class="java.lang.Integer"/>
+	<field name="nilai_bi" class="java.lang.Integer"/>
+	<field name="nilai_mtk" class="java.lang.Integer"/>
+	<field name="nilai_ipa" class="java.lang.Integer"/>
+	<field name="nilai_ips" class="java.lang.Integer"/>
+	<field name="nilai_skbl" class="java.lang.Integer"/>
+	<field name="nilai_pjok" class="java.lang.Integer"/>
+	<field name="nilai_jumlah" class="java.lang.Integer"/>
+	<field name="nilai_kelas" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="70" splitType="Stretch">
+			<staticText>
+				<reportElement style="Title" x="151" y="0" width="263" height="33" forecolor="#000000" uuid="7101b797-26df-41fb-be8f-9c34d507e6fc"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Data Nilai Siswa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="SubTitle" x="151" y="33" width="200" height="22" forecolor="#000000" uuid="7be533ab-7dde-4772-a5bb-47328df5b1d1"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[MIN Wanasari Brebes]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="35" width="555" height="1" uuid="428f11f4-60f4-47ff-84fa-6447771910d7"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" x="0" y="19" width="46" height="15" uuid="453b0dfe-2a3a-4a82-98db-e5f7ec6fed07"/>
+				<text><![CDATA[NIS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="46" y="19" width="46" height="15" uuid="70b7ebc3-7828-4464-90d5-e1efa25d1822"/>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="92" y="19" width="46" height="15" uuid="737d56b8-626e-4a40-b731-568de33ed124"/>
+				<text><![CDATA[PAI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="138" y="19" width="46" height="15" uuid="32228335-ac53-457b-a28e-5d193a9614c5"/>
+				<text><![CDATA[PKN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="184" y="19" width="46" height="15" uuid="2e5b27b3-5678-40c6-9a88-d3b6c8a94e59"/>
+				<text><![CDATA[Bahasa Indonesia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="230" y="19" width="46" height="15" uuid="ac5bdbc2-d661-4e2f-aa46-f849c8e426c6"/>
+				<text><![CDATA[MTK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="276" y="19" width="46" height="15" uuid="a8d626c9-a6ac-42d9-8ec7-5e77a487bd48"/>
+				<text><![CDATA[IPA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="322" y="19" width="46" height="15" uuid="9fe074d0-5a93-486f-b7dd-c59c668c43fd"/>
+				<text><![CDATA[IPS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="368" y="19" width="46" height="15" uuid="a24852ce-4694-4afe-8fdb-0997ffb4ebb0"/>
+				<text><![CDATA[SKBL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="414" y="19" width="46" height="15" uuid="707b0968-df1a-45c0-add2-8a5e097107c7"/>
+				<text><![CDATA[PJOK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="460" y="19" width="46" height="15" uuid="3c63714f-7e26-4878-9420-132c580f237c"/>
+				<text><![CDATA[Jumlah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="506" y="19" width="46" height="15" uuid="edcb66db-99d8-4014-9c82-5d1162cdc79c"/>
+				<text><![CDATA[Kelas]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="15" width="555" height="1" uuid="d15dfbfa-24cf-433f-9249-aa4795d356b1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement style="Detail" x="0" y="0" width="46" height="15" uuid="6c8aaf18-1256-4505-a371-55acdba081f0"/>
+				<textFieldExpression><![CDATA[$F{nilai_nis}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="46" y="0" width="46" height="15" uuid="a842d300-d883-44f6-a39d-e02b803001f6"/>
+				<textFieldExpression><![CDATA[$F{nilai_nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="92" y="0" width="46" height="15" uuid="d7f87672-fa25-4e52-9084-ed97103d4bc6"/>
+				<textFieldExpression><![CDATA[$F{nilai_pai}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="138" y="0" width="46" height="15" uuid="172043e9-6405-4157-b12f-ad998396188a"/>
+				<textFieldExpression><![CDATA[$F{nilai_pkn}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="184" y="0" width="46" height="15" uuid="86f4fc83-3e7f-41d6-90d5-c7eaaa64338d"/>
+				<textFieldExpression><![CDATA[$F{nilai_bi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="230" y="0" width="46" height="15" uuid="d318cb1c-6265-4b33-a8d8-260febf5285e"/>
+				<textFieldExpression><![CDATA[$F{nilai_mtk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="276" y="0" width="46" height="15" uuid="37a35114-e778-4fe6-af0c-5ab49141df00"/>
+				<textFieldExpression><![CDATA[$F{nilai_ipa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="322" y="0" width="46" height="15" uuid="af7dd834-cefa-46f6-99ea-e9d89d1b71e3"/>
+				<textFieldExpression><![CDATA[$F{nilai_ips}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="368" y="0" width="46" height="15" uuid="56ddc904-3249-49e3-b265-6166b09f05de"/>
+				<textFieldExpression><![CDATA[$F{nilai_skbl}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="414" y="0" width="46" height="15" uuid="049a2dbb-ebfc-4650-ad4e-91b7bb872848"/>
+				<textFieldExpression><![CDATA[$F{nilai_pjok}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="460" y="0" width="46" height="15" uuid="33a93fa2-fb67-4255-a2a9-78e1b6c28d15"/>
+				<textFieldExpression><![CDATA[$F{nilai_jumlah}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Detail" x="506" y="0" width="46" height="15" uuid="3e08f41e-7387-4f65-91e7-f13a9ef92971"/>
+				<textFieldExpression><![CDATA[$F{nilai_kelas}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="9331bf6a-6be9-421e-b593-b30d1175d63b"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement style="Column header" x="433" y="0" width="80" height="20" uuid="074ad578-ab17-46e5-b22c-2540a91594f9"/>
+				<textElement textAlignment="Right">
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement style="Column header" x="513" y="0" width="40" height="20" uuid="4f8ae01c-3b2b-4980-a61a-bf160d5333d9"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement style="Column header" x="0" y="0" width="197" height="20" uuid="c48648a8-4e66-4467-8b43-db62082e0470"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
