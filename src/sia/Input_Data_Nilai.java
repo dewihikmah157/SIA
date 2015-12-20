@@ -25,14 +25,50 @@ public class Input_Data_Nilai extends javax.swing.JFrame {
     /**
      * Creates new form Input_Data_Nilai
      */
+        
+    
     public Input_Data_Nilai() {
         initComponents();
         siswa2();
         mapel();
+        
         jComboBox4.setSelectedItem("");
        jComboBox3.setSelectedItem("");
       
     }
+    
+    public void rata2 (int sum, int nilai) {
+        String A=jComboBox1.getSelectedItem().toString();
+        String B=jComboBox3.getSelectedItem().toString();
+        String C=jComboBox4.getSelectedItem().toString();
+        int Rows =jTable1.getRowCount();
+        
+        for (int x=0; x<Rows; x++){
+             
+            nilai = Integer.parseInt(jTable1.getValueAt(x, 2).toString());
+            sum = sum + nilai;
+            
+        }
+        int sum1 = sum/8;
+     
+       
+       
+       if ((A.isEmpty()) | (B.isEmpty()) |(C.isEmpty()))
+            {JOptionPane.showMessageDialog(null,"data tidak boleh kosong, silahkan dilengkapi");
+            }else {
+            try {
+              Statement statement= (Statement) connect.GetConnection().createStatement();
+              statement.executeUpdate("insert into nilai VALUES('"+B+"','"+C+"','"+jTable1.getValueAt(0,2)+"','"+jTable1.getValueAt(1,2)+"','"+jTable1.getValueAt(2,2)+"','"+jTable1.getValueAt(3,2)+"','"+jTable1.getValueAt(4,2)+"','"+jTable1.getValueAt(5,2)+"','"+jTable1.getValueAt(6,2)+"','"+jTable1.getValueAt(7,2)+"','"+sum1+"','"+A+"');");
+              statement.close();
+              JOptionPane.showMessageDialog(null, "berhasil disimpan");
+            }
+            catch(Exception t){
+               JOptionPane.showMessageDialog(null, t.getMessage());  
+            }
+           
+            BersihData();
+        }
+         }
     
     public void BersihData(){
         jComboBox1.getSelectedItem().toString();
@@ -256,39 +292,7 @@ public class Input_Data_Nilai extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String A=jComboBox1.getSelectedItem().toString();
-        String B=jComboBox3.getSelectedItem().toString();
-        String C=jComboBox4.getSelectedItem().toString();
-        int Rows =jTable1.getRowCount();
-        int sum=0;
-        for (int x=0; x<Rows; x++){
-            String nilai = jTable1.getValueAt(x, 2).toString();
-            int nilai1 = Integer.parseInt(nilai);
-            sum = sum + nilai1;
-            
-        }
-        int sum1 = sum/8;
-        
-        
-             
-      
-               
-        
-        if ((A.isEmpty()) | (B.isEmpty()) |(C.isEmpty()))
-            {JOptionPane.showMessageDialog(null,"data tidak boleh kosong, silahkan dilengkapi");
-            }else {
-            try {
-              Statement statement= (Statement) connect.GetConnection().createStatement();
-              statement.executeUpdate("insert into nilai VALUES('"+B+"','"+C+"','"+jTable1.getValueAt(0,2)+"','"+jTable1.getValueAt(1,2)+"','"+jTable1.getValueAt(2,2)+"','"+jTable1.getValueAt(3,2)+"','"+jTable1.getValueAt(4,2)+"','"+jTable1.getValueAt(5,2)+"','"+jTable1.getValueAt(6,2)+"','"+jTable1.getValueAt(7,2)+"','"+sum1+"','"+A+"');");
-              statement.close();
-              JOptionPane.showMessageDialog(null, "berhasil disimpan");
-            }
-            catch(Exception t){
-               JOptionPane.showMessageDialog(null, t.getMessage());  
-            }
-           
-            BersihData();
-        }
+         rata2(0,0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

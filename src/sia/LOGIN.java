@@ -21,6 +21,36 @@ public class LOGIN extends javax.swing.JFrame {
     public LOGIN() {
         initComponents();
     }
+    
+    public void login(String a, String b) {
+        a= jTextField1.getText();
+        b=jPasswordField1.getText();
+       try{
+         Statement statement= (Statement) connect.GetConnection().createStatement();
+         ResultSet res=statement.executeQuery("select * from login where username= '"+jTextField1.getText()+"'");
+         if(res.next()){
+             if(jPasswordField1.getText().equals(res.getString("password"))){           
+           
+                 new Menu_Awal().show();
+                 this.dispose();
+                 }else{
+                 JOptionPane.showMessageDialog(rootPane, "Password Salah");
+                 jPasswordField1.setText("");
+                 jPasswordField1.requestFocus();
+             }
+       
+         }else {
+            JOptionPane.showMessageDialog(rootPane, "Username tidak ada");
+            jTextField1.setText("");
+            jPasswordField1.setText("");
+            jTextField1.requestFocus();
+         }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(rootPane, "gagal");
+        }
+            
+  
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -94,31 +124,7 @@ public class LOGIN extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         try{
-         Statement statement= (Statement) connect.GetConnection().createStatement();
-         ResultSet res=statement.executeQuery("select * from login where username= '"+jTextField1.getText()+"'");
-         if(res.next()){
-             if(jPasswordField1.getText().equals(res.getString("password"))){           
-           
-                 new Menu_Awal().show();
-                 this.dispose();
-                 }else{
-                 JOptionPane.showMessageDialog(rootPane, "Password Salah");
-                 jPasswordField1.setText("");
-                 jPasswordField1.requestFocus();
-             }
-       
-         }else {
-            JOptionPane.showMessageDialog(rootPane, "Username tidak ada");
-            jTextField1.setText("");
-            jPasswordField1.setText("");
-            jTextField1.requestFocus();
-         }
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(rootPane, "gagal");
-        }
-            
-
+        login("","");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
